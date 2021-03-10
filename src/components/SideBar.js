@@ -24,6 +24,7 @@ import ExposurePlus1Icon from '@material-ui/icons/ExposurePlus1';
 import ExposurePlus2Icon from '@material-ui/icons/ExposurePlus2';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 
 const drawerWidth = 280;
@@ -84,10 +85,12 @@ const useStyles = makeStyles((theme) => ({
 const options = [
     {
         type: '12-0 3 Left Bi-Fold Door',
-        addon: 'Priming',
+        addon: 'Carbon Color',
         amount: '$11,000',
-        addAmount: '$400',
-        config: '3 Left'
+        addAmount: '$100',
+        config: '3 Left',
+        addOn2: 'Stainless Steel Sill',
+        addOn2Amount: '$900',
     },
     {
         type: '8-0 4L-4R Slider Door',
@@ -116,7 +119,7 @@ const options = [
 
 const totals = [
     {
-        title: 'Subtotal: $64,000'
+        title: 'Subtotal: $64,600'
     },
     {
         title: 'Delivery Charge: $350'
@@ -125,7 +128,7 @@ const totals = [
         title: 'Sales Tax: $1,000'
     },
     {
-        title: 'Grand Total: $65,350'
+        title: 'Grand Total: $65,950'
     }
 ];
 
@@ -133,7 +136,7 @@ const RemoveBtn = ({ type }) => {
     const classes = useStyles();
     return (
         <>
-            <RemoveCircleOutlineIcon className={classes.remove} />
+            <RemoveIcon className={classes.remove} />
             {type}
         </>
     )
@@ -195,15 +198,15 @@ const SideBar = (props) => {
             <Divider />
             <List>
                 {totals.map((text, index) => (
-                    <ListItem button key={index} style={text.title === 'Grand Total: $65,350' ? { backgroundColor: '#04bff3', paddingBottom: 60, marginTop: 20, fontSize: 28 } : null}>
+                    <ListItem button key={index} style={text.title === 'Grand Total: $65,950' ? { backgroundColor: '#04bff3', paddingBottom: 40, marginTop: 20, fontSize: 28 } : null}>
                         {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
                         <ListItemText primary={
-                            <Typography component="span" variant="body2" className={classes.inline} color="textPrimary">
+                            <Typography component="span" variant="body2" style={{ marginLeft: 25 }} className={classes.inline} color="textPrimary">
                                 {text.title}
                             </Typography>
                         }
                         />
-                        {text.title === 'Grand Total: $65,350' && <GetAppIcon className={classes.download} />}
+                        {text.title === 'Grand Total: $65,950' && <GetAppIcon className={classes.download} />}
                     </ListItem>
                 ))}
             </List>
